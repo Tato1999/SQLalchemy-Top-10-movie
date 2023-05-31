@@ -10,7 +10,7 @@ content = []
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = '***********************'
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////Users/programing/Desktop/top10.db"
 db = SQLAlchemy(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -46,7 +46,7 @@ def search_movie(n):
     url = "https://api.themoviedb.org/3/search/movie"
 
     header = {
-        'api_key': '6752e59e5e8ec2106c7f8320f83141bc',
+        'api_key': '*************************',
         'query': f'{n}',
         'original_language': 'en'
     }
