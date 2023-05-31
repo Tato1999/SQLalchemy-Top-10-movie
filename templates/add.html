@@ -1,0 +1,26 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block title %}Add Movie{% endblock %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+{%if c|length == 0%}
+<div class="content">
+    <h1 class="heading">Add a Movie</h1>
+      {{wtf.quick_form(form)}}
+</div>
+{%else%}
+<h1 class="heading">Select Movie</h1>
+  {%for i in c%}
+    <div style="display:block; font-size: 20px; margin-left: 50px; margin-bottom: 10px;">
+      <a class="a" href="{{url_for('redirect_id', k = i['id'])}}">{{i['title']}}</a>
+    </div>
+  {%endfor%}
+{%endif%}
+{% endblock %}
